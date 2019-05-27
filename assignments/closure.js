@@ -1,6 +1,17 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
-
+function bigPapa(){
+  console.log('im the big papa');
+  function papa(){
+    console.log('im the papa');
+    function lilBrother(){
+      console.log('im the little Brother');
+    }
+    lilBrother();
+  }
+  papa();
+}
+bigPapa();
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
