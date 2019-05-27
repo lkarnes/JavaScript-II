@@ -24,32 +24,67 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 */
 
+// getLength passes the length of the array into the callback.
 
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+getLength(items, function(length) {
+  console.log(length);
+}); 
 
+
+// last passes the last item of the array into the callback.
 function last(arr, cb) {
-  // last passes the last item of the array into the callback.
+  return cb(arr.length-1)
 }
+last(items, function(theLast) {
+  console.log(items[theLast]);
+})
 
+
+// sumNums adds two numbers (x, y) and passes the result to the callback.
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y);
 }
+sumNums(8, 3 , function(sum){
+  console.log(sum);
+});
 
+
+// multiplyNums multiplies two numbers and passes the result to the callback.
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x*y);
 }
+multiplyNums(4, 2, function(multiply){
+  console.log(multiply);
+})
 
-function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
+// contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+function contains(item, list, cb) {
+  if(list.includes(item)){
+    return cb(true)
+  }else{
+    return cb(false);
+  }
 }
+contains('Pencil', items, function(container){
+  console.log(container);
+} )
+  
+  
 
 /* STRETCH PROBLEM */
 
-function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-}
+
+  var arrayUnique = function (arr) {
+    return arr.filter(function(item, index){
+      return arr.indexOf(item) >= index;
+    });
+  };
+  var itemsUnique = arrayUnique(items);
+  console.log(itemsUnique);
